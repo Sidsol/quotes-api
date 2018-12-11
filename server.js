@@ -1,6 +1,9 @@
+// imports
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 var port = 3000;
 
@@ -24,6 +27,8 @@ var quotes = [
         year: 1910
     }
 ];
+
+// ROUTES
 
 app.get('/', function(request, response){
     response.send("Get request recieved at '/'")
@@ -49,7 +54,6 @@ app.post('/quotes', function(request, response){
     console.log("Insert a new quote: " + request.body.quote);
     response.json(request.body);
 })
-
 
 
 app.listen(port, function () {
